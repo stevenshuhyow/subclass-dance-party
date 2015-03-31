@@ -21,13 +21,34 @@ $(document).ready(function(){
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     // make a dancer with a random position
+    var gifs = ['alien', 'ballerina', 'belly', 'break', 'hula', 'leprechaun'];
+    var gifIndex = Math.floor(Math.random() * gifs.length);
+    var dancer = new dancerMakerFunction(
+      $("body").height() * .5,
+      $("body").width() * Math.random(),
+      Math.random() * 1000,
+      gifs[gifIndex]
+    );
+    // $('body').append(dancer.$node);
+  });
+  $(".addDancerButton").on("click", function(event){
 
+    var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
+
+    // get the maker function for the kind of dancer we're supposed to make
+    var dancerMakerFunction = window[dancerMakerFunctionName];
+
+    // make a dancer with a random position
+    var gifs = ['alien', 'ballerina', 'belly', 'break', 'hula', 'leprechaun'];
+    var gifIndex = Math.floor(Math.random() * gifs.length);
     var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
-      Math.random() * 1000
+      Math.random() * 1000,
+      gifs[gifIndex]
     );
     $('body').append(dancer.$node);
   });
+
 });
 

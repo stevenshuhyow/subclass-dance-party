@@ -6,11 +6,22 @@
     <script src="lib/jquery.js"></script>
     <script src="src/dancer.js"></script>
     <script src="src/blinkyDancer.js"></script>
+    <script src="src/GifDancer.js"></script>
   </head>
   <body>
     <div class="topbar">
       <span class="title">object dance party</span>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a blinky dancer</a>    </div>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="GifDancer">add a random blinky dancer</a>
+    <a href="#" class="lineUp" data-dancer-maker-function-name="Lineup">Line Up All Dancers</a>
+      <select name="select">
+        <option value="dancer-alien.gif" >Alien</option>
+        <option value="dancer-ballerina.gif">Ballerina</option>
+        <option value="dancer-belly.gif">Belly</option>
+        <option value="dancer-break.gif">Break</option>
+        <option value="dancer-hula.gif">Hula</option>
+        <option value="dancer-leprechaun.gif">Leprechaun</option>
+      </select >
+    </div>
     <script src="src/init.js"></script>
   </body>
 </html>
