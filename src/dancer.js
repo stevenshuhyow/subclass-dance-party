@@ -1,3 +1,28 @@
+// define class (instance properties)
+Dancer = function(top, left, timeBetweenSteps){
+  this.$node = $('<span class="dancer"></span>');
+}
+
+// psuedoclassical plumbing
+Dancer.prototype = Object.create(Dancer.prototype);
+Dancer.prototype.constructor = Dancer;
+
+// define class methods (instance behaviors shared at class level)
+Dancer.prototype.step = function(){
+  setTimeout(this.step, timeBetweenSteps);
+};
+
+Dancer.prototype.stepPosition = function(top, left){
+  var styleSettings = {
+    top: top,
+    left: left
+  };
+  this.$node.css(styleSettings);
+};
+
+
+
+// BOILERPLATE
 // Creates and returns a new dancer object that can step
 var makeDancer = function(top, left, timeBetweenSteps){
 

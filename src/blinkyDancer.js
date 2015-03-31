@@ -1,3 +1,23 @@
+// define class
+BlinkyDancer = function(top, left, timeBetweenSteps){
+  Dancer.call(this, top, left, timeBetweenSteps);
+};
+
+// psueudoclassical plumbing
+BlinkyDancer.prototype = Object.create(Dancer.prototype);
+BlinkyDancer.prototype.constructor = BlinkyDancer;
+
+// define instance methods
+BlinkyDancer.prototype.step = function(){
+  this.step();
+  this.$node.toggle();
+}
+
+var bd = new BlinkyDancer(10, 30, 100);
+
+
+
+// BOILERPLATE
 var makeBlinkyDancer = function(top, left, timeBetweenSteps){
   var blinkyDancer = makeDancer(top, left, timeBetweenSteps);
 
@@ -17,3 +37,4 @@ var makeBlinkyDancer = function(top, left, timeBetweenSteps){
 
   return blinkyDancer;
 };
+
