@@ -9,7 +9,8 @@ Dancer.prototype.constructor = Dancer;
 
 // define class methods (instance behaviors shared at class level)
 Dancer.prototype.step = function(){
-  setTimeout(this.step, timeBetweenSteps);
+  console.log('Dancer');
+  window.setTimeout(this.step, timeBetweenSteps);
 };
 
 Dancer.prototype.stepPosition = function(top, left){
@@ -19,6 +20,10 @@ Dancer.prototype.stepPosition = function(top, left){
   };
   this.$node.css(styleSettings);
 };
+
+
+
+
 
 
 
@@ -56,3 +61,16 @@ var makeDancer = function(top, left, timeBetweenSteps){
 
   return dancer;
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
