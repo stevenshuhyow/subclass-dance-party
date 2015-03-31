@@ -9,9 +9,8 @@ BlinkyDancer.prototype.constructor = BlinkyDancer;
 
 // define instance methods
 BlinkyDancer.prototype.step = function(){
-  this.step();
   this.$node.toggle();
-}
+};
 
 var bd = new BlinkyDancer(10, 30, 100);
 
