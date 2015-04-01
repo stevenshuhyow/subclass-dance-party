@@ -3,7 +3,9 @@ Dancer = function(top, left, timeBetweenSteps){
   this.$node = $('<span class="dancer"></span>');
   this.timeBetweenSteps = timeBetweenSteps;
   this.step();
-  this.stepPosition(top, left);
+  this.positionY = top;
+  this.positionX = left;
+  this.stepPosition(this.positionY, this.positionX);
 }
 
 // psuedoclassical plumbing
@@ -13,15 +15,44 @@ Dancer.prototype.constructor = Dancer;
 // define class methods (instance behaviors shared at class level)
 Dancer.prototype.step = function(){
   setTimeout(this.step.bind(this), this.timeBetweenSteps);
+  this.movement();
+  this.deletion();
 };
 
+Dancer.prototype.deletion = function(){
+  for(var i = 0 ; i<window.dancers.length ; i++){
+    if(window.dancers[i].positionX === this.positionX && window.dancers[i] !== this){
+      window.dancers[i].$node.remove();
+    }
+  }
+}
+
+Dancer.prototype.movement = function(){
+  if(this.positionX > 10000){
+    this.$node.remove();
+  } else{
+    this.positionX = this.positionX + 10;
+    this.stepPosition(this.positionY, this.positionX);
+  }
+}
+
+
+
 Dancer.prototype.stepPosition = function(top, left){
-  var styleSettings = {
+  var position = {
     top: top,
     left: left
   };
-  this.$node.css(styleSettings);
+  this.$node.css(position);
 };
+
+Dancer.prototype.move = function(){
+  var position = {
+    top: top,
+    left: left
+  };
+  this.$node.css(position);
+}
 
 
 

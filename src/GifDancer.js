@@ -2,6 +2,7 @@
 GifDancer = function(top, left, timeBetweenSteps, face){
   Dancer.call(this, top, left, timeBetweenSteps);
   this.$face = $('<img>').prop('src', 'images/dancer-'+ face +'.gif');
+  this.$node.append(this.$face);
 };
 
 // psueudoclassical plumbing
