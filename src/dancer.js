@@ -23,6 +23,7 @@ Dancer.prototype.deletion = function(){
   for(var i = 0 ; i<window.dancers.length ; i++){
     if(window.dancers[i].positionX === this.positionX && window.dancers[i] !== this){
       window.dancers[i].$node.remove();
+      window.dancers.splice(i, 1);
     }
   }
 }
