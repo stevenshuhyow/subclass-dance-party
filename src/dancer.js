@@ -22,14 +22,16 @@ Dancer.prototype.step = function(){
 Dancer.prototype.deletion = function(){
   for(var i = 0 ; i<window.dancers.length ; i++){
     if(window.dancers[i].positionX === this.positionX && window.dancers[i] !== this){
-      window.dancers[i].$node.remove();
-      window.dancers.splice(i, 1);
+      if(this.timeBetweenSteps < window.dancers[i].timeBetweenSteps){
+        window.dancers[i].$node.remove();
+        window.dancers.splice(i, 1);
+      }
     }
   }
 }
 
 Dancer.prototype.movement = function(){
-  if(this.positionX > 10000){
+  if(this.positionX > 1000){
     this.$node.remove();
   } else{
     this.positionX = this.positionX + 10;
